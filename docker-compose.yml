@@ -1,0 +1,69 @@
+version: "3"
+services:
+  proxy:
+    hostname: proxy
+    image: jwilder/nginx-proxy
+    container_name: proxydaw
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx-proxy:/etc/nginx/vhost.d:ro
+      - "./conf/my_custom_proxy_settings.conf:/etc/nginx/conf.d/my_custom_proxy_settings.conf:ro"
+    networks:
+      - frontend
+  db:
+    hostname: db
+    image: mysql:5.7
+    container_name: dbdaw
+    volumes:
+      - ./data/db:/var/lib/mysql
+      - ./init-db:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=demo
+      - MYSQL_USER=dbuser
+      - MYSQL_PASSWORD=secret
+    networks:
+      - backend
+  web1:
+    build: ./dockerfiles/web1
+    container_name: web1
+    hostname: web1
+    volumes:
+      - ./data/web1:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - VIRTUAL_HOST=web1.com,www.web1.com
+    restart: always
+    networks:
+      - frontend
+      - backend
+
+  web2:
+    image: php:7.2-apache
+    container_name: web2
+    hostname: web2.com
+    volumes:
+      - ./data/web2:/var/www/html
+    environment:
+      - VIRTUAL_HOST=web2.com,www.web2.com
+    networks:
+      - frontend
+      - backend
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db:db
+    environment:
+      - MYSQL_USERNAME=root
+      - MYSQL_ROOT_PASSWORD=password
+      - PMA_HOST=db
+      - VIRTUAL_HOST=phpmyadmin.docker
+    networks:
+      - frontend
+      - backend
+networks:
+  frontend:
+  backend:
