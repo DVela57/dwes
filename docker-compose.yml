@@ -42,7 +42,7 @@ services:
       - backend
 
   web2:
-    image: php:7.2-apache
+    image: php:7.3-apache
     container_name: web2
     hostname: web2.com
     volumes:
