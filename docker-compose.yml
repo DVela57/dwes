@@ -41,6 +41,21 @@ services:
       - frontend
       - backend
 
+  introduccionphp:
+    build: ./dockerfiles/introduccionphp
+    container_name: introduccionphp
+    hostname: introduccionphp
+    volumes:
+      - ./data/introduccionphp:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - VIRTUAL_HOST=introduccionphp.local,www.introduccionphp.local
+    restart: always
+    networks:
+      - frontend
+      - backend
+
   web2:
     image: php:7.3-apache
     container_name: web2
