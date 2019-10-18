@@ -41,6 +41,36 @@ services:
       - frontend
       - backend
 
+  mvc:
+    build: ./dockerfiles/mvc
+    container_name: mvc
+    hostname: mvc
+    volumes:
+      - ./data/mvc:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - VIRTUAL_HOST=mvc.local,www.mvc.local
+    restart: always
+    networks:
+      - frontend
+      - backend
+
+  tema1:
+    build: ./dockerfiles/web1
+    container_name: tema1
+    hostname: tema1
+    volumes:
+      - ./data/tema1:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - VIRTUAL_HOST=tema1.com,www.tema1.com
+    restart: always
+    networks:
+      - frontend
+      - backend
+
   introduccionphp:
     build: ./dockerfiles/introduccionphp
     container_name: introduccionphp
