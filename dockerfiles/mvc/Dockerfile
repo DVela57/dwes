@@ -1,5 +1,8 @@
 FROM php:7.2-apache
-RUN docker-php-ext-install mysqli
+# RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install pdo pdo_mysql
+# /usr/local/bin/docker-php-ext-install -j5 gd mbstring mysqli pdo pdo_mysql shmop
+
 RUN a2enmod rewrite headers
 
 
