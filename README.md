@@ -2,12 +2,11 @@
 - Entorno Docker para el módulo de Desarrollo Web en Entorno Servidor
 - Clone el directorio en su espacio de trabajo
 
-```bash
-cd ~
-git clone git@github.com:rafacabeza/entornods.git
-```
+    ```bash
+    git clone git@github.com:rafacabeza/entornods.git
+    ```
 
-
+## Gestionar el servicio
 - Iniciar servicio:
     `docker-compose up -d`
 - Parar servicio
@@ -16,17 +15,9 @@ git clone git@github.com:rafacabeza/entornods.git
     `docker-compose ps`
 
 
-- Entorno Docker para el módulo de Desarrollo Web en Entorno Servidor
-- Iniciar servicio:
-    `docker-compose up -d`
-- Parar servicio:
-    `docker-compose down`
-- Ver máquinas corriendo:
-    `docker-compose ps`
+## Sitios web
 
-
-- En este entorno se van a usar tres sitios web de prueba. Para poder usarlos debemos *engañar* al DNS.
-- Debes editar tu fichero `/etc/hosts` para acceder a los dos sitios web creados por el mismo.
+- En este entorno se van a usar tres sitios web de prueba. Para poder usarlos debemos *engañar* al DNS. Debes editar tu fichero `/etc/hosts` para acceder a los dos sitios web creados por el mismo.
 
     ```
     127.0.0.1	web1.com
@@ -53,6 +44,7 @@ git clone git@github.com:rafacabeza/entornods.git
     - http://web2.com/
     - http://phpmyadmin.docker
 
+## Mysql
 
 - El último sitio nos permite accede a `phpmyadmin`
 - Este entorno incorpora un script para inicializar una base de datos en `./data/init-db`
