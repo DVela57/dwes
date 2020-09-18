@@ -1,15 +1,15 @@
-version: "3"
+version: '3'
 services:
   proxy:
     hostname: proxy
     image: jwilder/nginx-proxy
     container_name: proxydaw
     ports:
-      - "80:80"
+      - '80:80'
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./nginx-proxy:/etc/nginx/vhost.d:ro
-      - "./conf/my_custom_proxy_settings.conf:/etc/nginx/conf.d/my_custom_proxy_settings.conf:ro"
+      - './conf/my_custom_proxy_settings.conf:/etc/nginx/conf.d/my_custom_proxy_settings.conf:ro'
     networks:
       - frontend
   db:
@@ -71,21 +71,20 @@ services:
       - frontend
       - backend
 
-  introduccionphp:
+  ejercicios:
     build: ./dockerfiles/introduccionphp
-    container_name: introduccionphp
-    hostname: introduccionphp
+    container_name: ejercicios
+    hostname: ejercicios
     volumes:
-      - ./data/introduccionphp:/var/www/html
+      - ./data/ejercicios:/var/www/html
     depends_on:
       - db
     environment:
-      - VIRTUAL_HOST=introduccionphp.local,www.introduccionphp.local
+      - VIRTUAL_HOST=ejercicios.local,www.ejercicios.local
     restart: always
     networks:
       - frontend
       - backend
-
   web2:
     image: php:7.3-apache
     container_name: web2
