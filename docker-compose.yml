@@ -26,51 +26,6 @@ services:
       - MYSQL_PASSWORD=secret
     networks:
       - backend
-  web1:
-    build: ./dockerfiles/web1
-    container_name: web1
-    hostname: web1
-    volumes:
-      - ./data/web1:/var/www/html
-    depends_on:
-      - db
-    environment:
-      - VIRTUAL_HOST=web1.com,www.web1.com
-    restart: always
-    networks:
-      - frontend
-      - backend
-
-  mvc:
-    build: ./dockerfiles/mvc
-    container_name: mvc
-    hostname: mvc
-    volumes:
-      - ./data/mvc:/var/www/html
-    depends_on:
-      - db
-    environment:
-      - VIRTUAL_HOST=mvc.local,www.mvc.local
-    restart: always
-    networks:
-      - frontend
-      - backend
-
-  tema1:
-    build: ./dockerfiles/web1
-    container_name: tema1
-    hostname: tema1
-    volumes:
-      - ./data/tema1:/var/www/html
-    depends_on:
-      - db
-    environment:
-      - VIRTUAL_HOST=tema1.com,www.tema1.com
-    restart: always
-    networks:
-      - frontend
-      - backend
-
   ejercicios:
     build: ./dockerfiles/introduccionphp
     container_name: ejercicios
@@ -82,17 +37,6 @@ services:
     environment:
       - VIRTUAL_HOST=ejercicios.local,www.ejercicios.local
     restart: always
-    networks:
-      - frontend
-      - backend
-  web2:
-    image: php:7.3-apache
-    container_name: web2
-    hostname: web2.com
-    volumes:
-      - ./data/web2:/var/www/html
-    environment:
-      - VIRTUAL_HOST=web2.com,www.web2.com
     networks:
       - frontend
       - backend
