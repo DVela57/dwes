@@ -40,6 +40,20 @@ services:
     networks:
       - frontend
       - backend
+  mvc:
+    build: ./dockerfiles/mvc
+    container_name: mvc
+    hostname: mvc
+    volumes:
+      - ./data/mvc:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - VIRTUAL_HOST=mvc.local,www.mvc.local
+    restart: always
+    networks:
+      - frontend
+      - backend      
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     links:
