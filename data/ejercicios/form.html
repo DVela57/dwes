@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario credenciales</h1>
+    <form name="miform" action="/autoriza.php" method="post">
+        <p>
+            <label for="nombre">Introduce el nombre:</label> 
+            <input type="text" name="nombreusu" id="nombreusu">  
+        </p>
+        <p>
+            <label for="password">Introduce la contraseña:</label>
+            <input type="password" name="passwd" id="passwd">
+        </p>
+        <p>Elige tus asignaturas preferidas:</p>
+        <label for="asignaturas1">PHP</label>
+        <input type="checkbox" name="asignaturas[]" id="asignaturas1" value="php" checked>
+        <label for="asignaturas2">JS</label>
+        <input type="checkbox" name="asignaturas[]" id="asignaturas2" value="js">
+        <label for="asignaturas3">Python</label>
+        <input type="checkbox" name="asignaturas[]" id="asignaturas3" value="python">
+        <label for="asignaturas4">Javi</label>
+        <input type="checkbox" name="asignaturas[]" id="asignaturas4" value="javi" checked>
+        
+        <p>Elige tu equipo favorito</p>
+        <label for="equipo1">DFM</label>
+        <input type="radio" name="equipo" id="equipo1" value="DFM">
+        <label for="equipo2">CJ team</label>
+        <input type="radio" name="equipo" id="equipo2" value="CJ team">
+        <label for="equipo3">GAM</label>
+        <input type="radio" name="equipo" id="equipo3" value="GAM" checked>
+        <br>
+
+        <p>Elige tu plato favorito</p>
+
+        <select name="platos" id="platos">
+            <option value="costilla">costilla de cerdo asado</option>
+            <option value="lubina">lubina al horno</option>
+            <option value="macarrones">macarrones sin salsa</option>
+            <option value="salmon">salmon al estilo de la familia baiges</option>
+        </select>
+        <br>
+
+        <p>Elige tus platos favoritos de esta lista</p>
+
+        <select name="menus[]" id="menus" multiple="2" required>
+            <option value="costilla">costilla de cerdo asado</option>
+            <option value="lubina">lubina al horno</option>
+            <option value="macarrones">macarrones sin salsa</option>
+            <option value="salmon">salmon al estilo de la familia baiges</option>
+        </select>
+        <br>
+
+        <button type="submit" name="envio" id="envio" value="EnviarDatos">Enviar Datos</button>
+        
+
+    </form>
+</body>
+</html>
