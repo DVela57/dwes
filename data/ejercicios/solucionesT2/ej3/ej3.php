@@ -26,6 +26,7 @@
                 }
                 else {
                     print "<br>El nombre debe de ser de mas de 2 caracteres";
+                    print "<br>El input del nombre debe de ser valido";
                 }
             }
             
