@@ -28,13 +28,15 @@
         if(isset($_POST["envio"])){
             if (!empty($_POST['nombres']))  {
                 $nombres = $_POST["nombres"];
-                print "<br>Nombres escritos:";
-                foreach($nombres as $nombre) {
-                    print "<br>-" . $nombre;
+                $size = count($nombres);
+                if ($size != 0) {
+                    print "<br>Nombres escritos:";
+                    foreach($nombres as $nombre) {
+                        print "<br>-" . $nombre;
+                    }
+                }else {
+                    print "<br><h3>No has introducido algun nombre, es obligatorio, vuelve atras e introduce un nombre</h3>";
                 }
-            }
-            else {
-                print "<br><h3>No has introducido algun nombre, es obligatorio, vuelve atras e introduce un nombre</h3>";
             }
         }
         else {
