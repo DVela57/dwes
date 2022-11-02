@@ -7,7 +7,7 @@
     <title>Formulario Libros</title>
 </head>
 <body>
-    <form action="#" method="get">
+    <form action="<?php print htmlspecialchars($_SERVER["PHP_SELF"])?>" method="get">
         <p>
             <label for="titulo">Titulo del libro</label>
             <input type="text" name="titulo" id="titulo">
@@ -22,7 +22,7 @@
         </p>
         <p>
             <label for="paginas">Paginas del libro</label>
-            <input type="num" name="paginas" id="paginas">
+            <input type="number" name="paginas" id="paginas">
         </p>
         <input type="submit" value="EnviarDatos" name="envio" id="envio">
     </form>

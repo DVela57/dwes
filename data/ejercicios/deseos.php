@@ -1,11 +1,38 @@
 <?php
-session_start();
-    if (isset($_POST["envio"])) {
-        if (!empty($_POST["deseos"])) {
-            
-        }
+    if($_SERVER["REQUEST_METHOD"] === "POST") {
+        if(isset($_POST["envio"])) {
+            session_start();
+            $item = $_POST["lista"];
+            $_SESSION["listaDeseo"][] = $item;
+            print_r($_SESSION["listaDeseo"]);
+            //print "<br>Elemento selecc : " . $_SESSION["listaDeseo"];
+            $sesioncodif = json_encode($_SESSION["listaDeseo"]);
 
-    } 
+            //$sesiondecodif = json_decode($sesioncodif, true);
+            /*print "<hr>";
+            print_r($sesiondecodif);
+            print "<hr>";
+            print_r($sesioncodif);
+            */
+
+            //como objeto
+            $sesiondecodif = json_decode($sesioncodif);
+            //print "<hr>";
+           // var_dump($sesiondecodif);
+
+            $sesiondecodif->{'listadeseo'}[1] = "felipe";
+            print "<hr>";
+            print_r($sesiondecodif);
+
+            /*$miarray = get_object_vars($sesiondecodif);
+            print "<hr>";
+            print_r($miarray);
+            for($x = 0; $x < count($miarray,COUNT_RECURSIVE - 1); $x ++) {
+                print "<br>El elemento " . $x . " es: " . $miarray['listadeseo'][$x];
+                print "<br>";
+            }*/
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,18 +44,22 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    <form action=""<?php print htmlspecialchars($_SERVER['PHP_SELF']) ?>">
-        <p>
-            <h1>Lista de deseos:</h1>
-            <select name="deseos" id="deseos">
-                <option value="vaqueros">vaqueros</option>
-                <option value="mobil">mobil</option>
-                <option value="coche">coche</option>
-                <option value="collar">collar</option>
-                <option value="casa">casa</option>
-            </select>
-        </p>
-        <input type="submit" name="envio" id="envio" value="Añadir/Eliminar">
+    <h1>Lista de deseos</h1>
+    <h3>Hoy voy a comprar..</h3>
+    <form action="<?php print htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">
+        <select name="lista" id="lista" required>
+            <option value="camisa">camisa</option>
+            <option value="cortacesped">cortacesped</option>
+            <option value="consola">consola</option>
+            <option value="pantalon">pantalon</option>
+            <option value="mobil">mobil</option>
+            <option value="colonia">colonia</option>
+            <option value="coche">coche</option>
+            <option value="portatil">protatil</option>
+        </select>
+        <br>
+        <input type="submit" name="envio" value="Agregar Deseo">
     </form>
+    
 </body>
 </html>

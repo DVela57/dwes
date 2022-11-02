@@ -48,7 +48,7 @@ class App
       return;
     }
     if (isset($_COOKIE['deseos'])) {
-      $deseos = unserialize($_COOKIE['deseos']);
+      $deseos = json_decode($_COOKIE['deseos']);
     } else {
       // $deseos = array();
       $deseos = [];
@@ -64,12 +64,12 @@ class App
     }
     $new = $_POST['new'];
     if (isset($_COOKIE['deseos'])) {
-      $deseos = unserialize($_COOKIE['deseos']);
+      $deseos = json_decode($_COOKIE['deseos']);
     } else {
       $deseos = [];
     }
     $deseos[] = $new;
-    setcookie('deseos', serialize($deseos), time() + 60*60*2);
+    setcookie('deseos', json_decode($deseos), time() + 60*60*2);
     header('Location: index.php?method=home');
   }
 
@@ -78,13 +78,13 @@ class App
     // echo "<pre>";
     // print_r($_GET);
     if (isset($_COOKIE['deseos'])) {
-      $deseos = unserialize($_COOKIE['deseos']);
+      $deseos = json_decode($_COOKIE['deseos']);
     } else {
       $deseos = [];
     }
     $id = $_GET['id'];
     unset($deseos[$id]);
-    setcookie('deseos', serialize($deseos), time() + 60*60*2);
+    setcookie('deseos', js($deseos), time() + 60*60*2);
     header('Location: index.php?method=home');
   }
 
