@@ -26,20 +26,6 @@ services:
       - MYSQL_PASSWORD=secret
     networks:
       - backend
-  ejercicios:
-    build: ./dockerfiles/introduccionphp
-    container_name: ejercicios
-    hostname: ejercicios
-    volumes:
-      - ./data/ejercicios:/var/www/html
-    depends_on:
-      - db
-    environment:
-      - VIRTUAL_HOST=ejercicios.local,www.ejercicios.local
-    restart: always
-    networks:
-      - frontend
-      - backend
   mvc:
     build: ./dockerfiles/mvc
     container_name: mvc
