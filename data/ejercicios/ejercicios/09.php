@@ -1,4 +1,5 @@
 <?php 
+//ej 9 añadiendo de uno en uno
     $paises = array();
     $paises[] = "Italia";
     $paises[] = "Uganda";

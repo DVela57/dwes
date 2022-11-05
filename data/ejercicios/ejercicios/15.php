@@ -25,13 +25,18 @@
         <button type="submit" name="envio" id="envio" value="enviarDatos">Enviar Datos</button>
     </form>
     <?php
+        //un array de nombres que si no estan los 3 nombres no muestra el array
         if($_SERVER["REQUEST_METHOD"] === "POST") {
             if(isset($_POST["envio"])){
                 if (!empty($_POST['nombres']))  {
                     $nombres = $_POST["nombres"];
-                    $size = sizeof($nombres);
-                    print $size;
-                    if ($size != 0) {
+                    $size = 0;
+                    foreach($nombres as $nombre){
+                        if ($nombre != null) {
+                            $size ++;
+                        }
+                    }
+                    if ($size == 3) {
                         print "<br>Nombres escritos:";
                         foreach($nombres as $nombre) {
                             print "<br>-" . $nombre;

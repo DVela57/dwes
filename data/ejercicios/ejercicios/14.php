@@ -28,6 +28,7 @@
         <button type="submit" name="envio" id="envio" value="enviarDatos">Enviar Datos</button>
     </form>
     <?php
+    //funciones de la calculadora y depende la opcion del select muestra un resultado u otro
         function suma($num1, $num2) {
             return ($num1 + $num2);
         }

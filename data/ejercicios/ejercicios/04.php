@@ -1,4 +1,5 @@
 <?php
+//imprime los 10 primeros numeros de fibonacci
     $numA = 0;
     $numB = 1;
     $resultado = 0;

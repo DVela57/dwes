@@ -1,4 +1,5 @@
 <?php
+//muestrar lso numeros divisibles por 3 entre el 1 y el 10
     print "Numeros divisibles por 3 entre el 1 y 10<br>";
      $numeros = array();
     for ($x = 1; $x <= 10; $x++) {

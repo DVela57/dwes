@@ -1,5 +1,5 @@
 <?php
-
+    //ejercicion de añadir datos a la tabla
     $nombre = "diego";
     $apellidos = "vela aparicio";
     $edad = 20;

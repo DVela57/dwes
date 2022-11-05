@@ -1,4 +1,5 @@
 <?php
+//Array mostrandolo todos de todas las formas
     $equipo = array("Javi" , "Jorge", "David", "Felipe", "Zigmas");
     print "<h1>Equipo de basket:</h1>1ª forma:";
     foreach($equipo as $judagor) {

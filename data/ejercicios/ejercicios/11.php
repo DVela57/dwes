@@ -7,6 +7,7 @@
     <title>Formulario Libros</title>
 </head>
 <body>
+    <!-- Formulario para enviar datos en post-->
     <form action="<?php print htmlspecialchars($_SERVER["PHP_SELF"])?>" method="get">
         <p>
             <label for="titulo">Titulo del libro</label>

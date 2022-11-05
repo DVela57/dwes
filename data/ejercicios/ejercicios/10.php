@@ -1,4 +1,5 @@
 <?php
+//array asociativo para luego mostrarlo con un foreach clave valor
     $equipo = array(
         "base" => "Javi",
         "escolta" => "Felipe",

@@ -1,4 +1,5 @@
 <?php
+//usando una constando para definir el numero
     const NUM = 169;
     $divisores = array();
     for ($x=1; $x <NUM ; $x++) { 
@@ -7,7 +8,7 @@
             
         }
     }
-    
+    //comprobacion de si es primo 
     if (sizeof($divisores) == 0) {
         print "<br>El numero es primo";
     }else {

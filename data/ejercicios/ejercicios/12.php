@@ -1,4 +1,5 @@
 <?php
+//si existe el nombre enviado por el form, es valido y envia saludo
     $valido = false;
     if($_SERVER["REQUEST_METHOD"] === "POST") {
         if(isset($_POST["envio"])) {

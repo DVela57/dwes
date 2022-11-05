@@ -1,4 +1,5 @@
 <?php
+//ej 6 añadienlos de 1 en 1
     $equipo = array();
     $equipo[] = "Javi";
     $equipo[] = "Felipe";

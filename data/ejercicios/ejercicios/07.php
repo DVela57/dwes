@@ -1,4 +1,5 @@
 <?php 
+//array de paises que se muestran de todas las formas
     $paises = array("Lituania" , "Vietnam", "Israel", "Brasil");
     print_r($paises);
     print "<hr>";

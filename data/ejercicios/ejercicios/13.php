@@ -1,4 +1,5 @@
 <?php
+//comprueba que se ha enviado y que sea de 3 o mas caracteres
     $valido = false;
     if($_SERVER["REQUEST_METHOD"] === "POST") {
         if(isset($_POST["envio"])) {
@@ -27,6 +28,8 @@
         <p>
             <label for="nombre">Introduce un nombre</label>
             <?php
+            //si se ha enviado el formulario depende de si tiene 3 carcteres o no, muestra el input normal,
+            //o el input con el campo anterior introducido, si no muestra el input normal
                 $input = '<input type="text" name="nombre" id="nombre" >';
                 if(isset($_POST["envio"])) {
                     if ($valido) {
